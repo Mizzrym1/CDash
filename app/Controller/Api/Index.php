@@ -778,7 +778,7 @@ class Index extends ResultsApi
         $compilation_response = array();
 
         if ($build_array['countbuilderrors'] >= 0) {
-            if ($this->includeSubProjects) {
+            if ($this->includeSubProjects && $this->childView != 1) {
                 $nerrors = $selected_build_errors;
                 $nwarnings = $selected_build_warnings;
                 $buildduration = $selected_build_duration;
@@ -823,7 +823,7 @@ class Index extends ResultsApi
             $build_response['hasconfigure'] = true;
             $configure_response = array();
 
-            if ($this->includeSubProjects) {
+            if ($this->includeSubProjects && $this->childView != 1) {
                 $nconfigureerrors = $selected_configure_errors;
                 $nconfigurewarnings = $selected_configure_warnings;
                 $configureduration = $selected_configure_duration;
@@ -861,7 +861,7 @@ class Index extends ResultsApi
             $this->buildgroupsResponse[$i]['hastestdata'] = true;
             $test_response = array();
 
-            if ($this->includeSubProjects) {
+            if ($this->includeSubProjects && $this->childView != 1) {
                 $nnotrun = $selected_tests_not_run;
                 $nfail = $selected_tests_failed;
                 $npass = $selected_tests_passed;
